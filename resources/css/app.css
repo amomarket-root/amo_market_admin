@@ -1,0 +1,210 @@
+/* app.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #9f63ff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --bg-default: #f5f5f5;
+    --bg-paper: #ffffff;
+    --sidebar-bg: #f9f9f9;
+    --appbar-bg: rgba(249, 249, 249, 0.8);
+    --scroll-thumb: #a3a4a4;
+    --scroll-track: #f1f1f1;
+    --infowindow-bg: #ffffff;
+    --infowindow-text: #333333;
+    --infowindow-border: #e0e0e0;
+    --icon-invert: 0; /* 0 for light, 1 for dark */
+}
+
+.dark-theme {
+    --primary-color: #9f63ff;
+    --text-primary: #ffffff;
+    --text-secondary: #bbbbbb;
+    --bg-default: #121212;
+    --bg-paper: #1e1e1e;
+    --sidebar-bg: #1e1e1e;
+    --appbar-bg: rgba(30, 30, 30, 0.8);
+    --scroll-thumb: #555;
+    --scroll-track: #222;
+    --infowindow-bg: #2d2d2d;
+    --infowindow-text: #ffffff;
+    --infowindow-border: #424242;
+    --icon-invert: 1;
+}
+
+html, body {
+    background-color: var(--bg-default);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+.app-container {
+    padding: 20px;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+}
+
+/* Scrollbar styles */
+.scrollableBox::-webkit-scrollbar {
+    width: 1px;
+}
+
+.scrollableBox::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: 2px;
+}
+
+.scrollableBox::-webkit-scrollbar-track {
+    background-color: var(--scroll-track);
+}
+
+.scrollableBox {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+/* Google Maps InfoWindow Styles - Fixed Version */
+.gm-style .gm-style-iw {
+    background-color: var(--infowindow-bg) !important;
+    color: var(--infowindow-text) !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    border: 1px solid var(--infowindow-border) !important;
+    box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
+}
+
+.gm-style .gm-style-iw-c {
+    padding: 0 !important;
+    border-radius: 8px !important;
+    background: var(--infowindow-bg) !important;
+    box-shadow: none !important;
+}
+
+.gm-style .gm-style-iw-d {
+    overflow: hidden !important;
+    padding: 0 !important;
+    background: var(--infowindow-bg) !important;
+    color: var(--infowindow-text) !important;
+}
+
+.gm-style-iw-t::after {
+    background: var(--infowindow-bg) !important;
+    box-shadow: -2px 2px 2px 0 rgba(0,0,0,0.1) !important;
+}
+
+.gm-ui-hover-effect {
+    filter: invert(var(--icon-invert)) !important;
+    top: 8px !important;
+    right: 8px !important;
+}
+
+/* InfoWindow content styling */
+.gm-style .gm-style-iw div[style*="overflow"] {
+    background: var(--infowindow-bg) !important;
+    color: var(--infowindow-text) !important;
+}
+
+.gm-style .gm-style-iw div {
+    background: var(--infowindow-bg) !important;
+    color: var(--infowindow-text) !important;
+}
+
+/* Button and link styles */
+.gm-style .gm-style-iw a {
+    color: var(--primary-color) !important;
+}
+
+.gm-style .gm-style-iw button {
+    color: var(--infowindow-text) !important;
+}
+
+/* Animation styles */
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-animation {
+    animation: fadeSlideIn 1s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+    will-change: transform, box-shadow;
+}
+
+/* Override Material-UI's Paper styles */
+.MuiPaper-root.card-animation {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.MuiPaper-root.card-animation:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+}
