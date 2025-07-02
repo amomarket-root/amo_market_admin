@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'id'         => (string) Str::uuid(),
             'role_id'    => $superAdminRole->id,
             'name'       => 'Super Admin',
-            'email'      => 'superadmin@gmail.com',
+            'email'      => 'amomarket.root@gmail.com',
             'password'   => Hash::make('Sameer@0505'),
             'status'     => 1,
             'created_at' => now(),
