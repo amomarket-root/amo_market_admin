@@ -28,7 +28,6 @@ class User extends AuthModel
      */
     protected $fillable = [
         'role_id',
-        'social_media_id',
         'name',
         'email',
         'password',
@@ -87,5 +86,10 @@ class User extends AuthModel
     public function shop()
     {
         return $this->hasOne(Shop::class, 'user_id');
+    }
+
+    public function providers()
+    {
+        return $this->hasMany(Provider::class, 'user_id', 'id');
     }
 }
