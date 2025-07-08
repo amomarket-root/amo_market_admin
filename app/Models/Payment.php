@@ -17,6 +17,7 @@ class Payment extends Model
         'amount',
         'payment_id',
         'order_id',
+        'user_cart_id',
         'status',
         'other'
     ];
@@ -30,4 +31,9 @@ class Payment extends Model
     protected $table = 'payments';
     protected $keyType = 'string';
     public $incrementing = false;
+
+    public function userCart()
+    {
+        return $this->belongsTo(UserCart::class, 'user_cart_id');
+    }
 }

@@ -19,9 +19,12 @@ return new class extends Migration
             $table->decimal('amount', 10, 2);
             $table->string('payment_id')->nullable();
             $table->string('order_id')->nullable();
+            $table->uuid('user_cart_id')->nullable();
             $table->boolean('status')->default(0); // 0 = Pending, 1 = Success
             $table->json('other')->nullable();
             $table->timestamps();
+
+           $table->foreign('user_cart_id')->references('id')->on('user_carts')->onDelete('cascade');
         });
     }
 
